@@ -1,0 +1,45 @@
+
+<nav class="uk-navbar-container uk-margin uk-box-shadow-large" uk-navbar="mode: click" uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
+  <div class="uk-navbar-left">
+
+      <ul class="uk-navbar-nav">
+          <li ><a href="#" class="nav-head">Sweeten FrontEnd Assignment</a></li>
+      </ul>
+
+  </div>
+</nav>
+<div uk-grid>
+    
+    <div class="main">
+        
+        <h1 style="text-align: center;color:#888585;font-family: 'Coda', cursive;">Movies Details</h1>
+        <hr>
+        <p class="caption">Note:</p>
+        <p class="caption">* Click on the Collumn name for Ascending and Descending Sorting.</p>
+        <p class="caption">* Hover over the Collumn name for Filter Options.</p>
+        <div class="my_class uk-button uk-button-default uk-box-shadow-medium" (click)="clickEvent()"  
+        [ngClass]="status ? 'uk-button-secondary' : 'uk-button-primary'">                
+          Dark/Light Theme
+        </div>
+        <div class="movies-container scrollbar uk-box-shadow-medium" id="style-1">
+            <div class="force-overflow"></div>  
+        <ag-grid-angular
+        ag-grid="gridOptions"
+        style="width:2355px; height:90vh"
+        [ngClass]="status ? 'ag-theme-dark' : 'ag-theme-material'"
+        [columnDefs]="columnDefs"
+        [enableSorting]="true"
+        [enableFilter]="true"
+        [animateRows]="true"
+        [pagination]="true"
+        [paginationPageSize] = "10"
+        [sortingOrder]="sortingOrder"
+        (gridReady)="onGridReady($event)"
+        >
+        </ag-grid-angular>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>
